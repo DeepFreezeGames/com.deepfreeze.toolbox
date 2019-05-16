@@ -1,0 +1,16 @@
+{
+    "name": "com.deepfreeze.toolbox",
+    "displayName": "Toolbox",
+    "registry": "https://github.com/LiamAtDeepFreeze/Toolbox.git",
+    "version": "0.0.1",
+    "unity": "2018.1",
+    "description": "A helpful package with useful tools for Unity development",
+    "keywords": [
+        "unity",
+        "packages",
+        "lit"
+    ],
+    "dependencies": {
+    },
+    "category": "Unity"
+}
