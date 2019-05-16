@@ -141,5 +141,34 @@ namespace Toolbox.Editor
         {
             Selection.activeGameObject = null;
         }
+        
+        #region PlayerPrefs  
+        [MenuItem("Tools/Player Prefs/Clear All Player Prefs", priority = 100)]
+        public static void ClearPlayerPrefs()
+        {
+            //Delete all keys
+        }
+
+        [MenuItem("Tools/Player Prefs/Delete Player Pref", priority = 100)]
+        public static void DeletePlayerPrefByName()
+        {
+            //Get all player pref keys
+            //Delete selected
+        }
+        #endregion
+
+        #region EditorPrefs
+        [MenuItem("Tools/Editor Prefs/Clear All Editor Prefs", priority = 200)]
+        public static void ClearEditorPrefs()
+        {
+            EditorPrefs.DeleteAll();
+        }
+        #endregion
+
+        [MenuItem("Tools/Don't Panic", priority = 1000)]
+        public static void ForceReimport()
+        {
+            AssetDatabase.Refresh();
+        }
     }
 }
