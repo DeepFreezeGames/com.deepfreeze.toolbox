@@ -13,9 +13,9 @@ namespace Toolbox.Editor
         static HotKeys()
         {
             //_showRenderBounds = EditorPrefs.GetBool(ShowRenderBoundsKey, false);
-            
-            SceneView.onSceneGUIDelegate -= OnSceneGUI;
-            SceneView.onSceneGUIDelegate += OnSceneGUI;
+
+            SceneView.duringSceneGui -= OnSceneGUI;
+            SceneView.duringSceneGui += OnSceneGUI;
         }
 
         //private static Ray _lastMouseRay;
@@ -31,7 +31,7 @@ namespace Toolbox.Editor
                     var oldColor = Gizmos.color;
                     Gizmos.color = Color.cyan;
                     Gizmos.DrawWireCube(renderer.bounds.center, renderer.bounds.extents);
-                    Handles.Label(new Vector3(renderer.bounds.center.x, renderer.bounds.center.y - renderer.bounds.extents.y, renderer.bounds.center.z), 
+                    Handles.Label(new Vector3(renderer.bounds.center.x, renderer.bounds.center.y - renderer.bounds.extents.y, renderer.bounds.center.z),
                         $"X:{renderer.bounds.extents.x.ToString()} Y: {renderer.bounds.extents.y.ToString()} Z: {renderer.bounds.extents.z.ToString()}");
                     Gizmos.color = oldColor;
                 }
@@ -39,7 +39,7 @@ namespace Toolbox.Editor
         }
 
         private const string EditorPrefScreenShotPath = "Screenshots";
-        
+
         [MenuItem("Tools/Take Screenshot")]
         public static void CaptureScreenshot()
         {
@@ -62,7 +62,7 @@ namespace Toolbox.Editor
 
         #region CUT AND PASTE
         public static List<Object> ObjectsSelectedForCut;
-        
+
         [MenuItem("Tools/Hotkeys/Cut GameObjects _%#X", priority = 50)]
         public static void Cut()
         {
@@ -141,8 +141,8 @@ namespace Toolbox.Editor
         {
             Selection.activeGameObject = null;
         }
-        
-        #region PlayerPrefs  
+
+        #region PlayerPrefs
         [MenuItem("Tools/Player Prefs/Clear All Player Prefs", priority = 100)]
         public static void ClearPlayerPrefs()
         {

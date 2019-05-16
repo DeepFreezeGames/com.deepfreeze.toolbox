@@ -25,12 +25,12 @@ namespace Toolbox.Editor
         {
             if (enabled && !_isEnabled)
             {
-                SceneView.onSceneGUIDelegate += SceneGuiCallback;
+                SceneView.duringSceneGui += SceneGuiCallback;
                 _isEnabled = true;
             }
             else if (!enabled && _isEnabled)
             {
-                SceneView.onSceneGUIDelegate -= SceneGuiCallback;
+                SceneView.duringSceneGui -= SceneGuiCallback;
                 _isEnabled = false;
             }
         }
@@ -39,7 +39,7 @@ namespace Toolbox.Editor
         {
             if(Camera.main == null)
                 return;
-            
+
             if(!sceneView.camera.orthographic)
                 Camera.main.transform.SetPositionAndRotation(sceneView.camera.transform.position - 0.1f * sceneView.camera.transform.forward, sceneView.camera.transform.rotation);
         }
