@@ -53,7 +53,7 @@ namespace Toolbox.Editor
 	///		your code here...
 	/// }
 	/// </summary>
-	/// 
+	///
 	public class HorizontalBlock : IDisposable
 	{
 		public HorizontalBlock(params GUILayoutOption[] options)
@@ -121,6 +121,28 @@ namespace Toolbox.Editor
 			}
 			EditorGUILayout.EndHorizontal();
 			return filepath;
+		}
+
+		public static int EnumButtonField(string label, int currentSelection, string[] options)
+		{
+			using (new HorizontalBlock())
+			{
+				if (!string.IsNullOrEmpty(label))
+				{
+					GUILayout.Label(label);
+				}
+				for (var i = 0; i < options.Length; i++)
+				{
+					GUI.enabled = currentSelection != i;
+					if (GUILayout.Button(options[i]))
+					{
+						return i;
+					}
+					GUI.enabled = true;
+				}
+			}
+
+			return currentSelection;
 		}
 	}
 }
