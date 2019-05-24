@@ -21,9 +21,19 @@ namespace Toolbox.Editor
 		private const float ItemSpacing = 10f;
 		private static ViewMode _viewMode = ViewMode.All;
 
-		private string CurrentSelectionName => currentSelection != null ? currentSelection.name : "Nothing selected";
+		private string CurrentSelectionName => CurrentSelection != null ? CurrentSelection.name : "Nothing selected";
 
-		public static Object currentSelection { get; private set; }
+		public static string currentSelectionPath { get; private set; }
+		private static Object _currentSelection { get; set; }
+		public static Object CurrentSelection
+		{
+			get => _currentSelection;
+			set
+			{
+				_currentSelection = value;
+				currentSelectionPath = AssetDatabase.GetAssetPath(_currentSelection);
+			}
+		}
 		private List<Object> _sceneDependencies = new List<Object>();
 		private List<Object> _projectDependencies = new List<Object>();
 		private List<Object> _objectsToShow = new List<Object>();
@@ -43,7 +53,7 @@ namespace Toolbox.Editor
 
 		public static void Initialize(Object selection)
 		{
-			currentSelection = selection;
+			CurrentSelection = selection;
 			Initialize();
 		}
 
@@ -62,6 +72,7 @@ namespace Toolbox.Editor
 
 		private void UpdateDependencies()
 		{
+			_objectsToShow.Clear();
 			switch (_viewMode)
 			{
 				case ViewMode.SceneOnly:
@@ -94,14 +105,23 @@ namespace Toolbox.Editor
 
 		private void GetProjectDependencies()
 		{
-
+			_projectDependencies.Clear();
+			var dependencyPaths = AssetDatabase.GetDependencies(AssetDatabase.GetAssetPath(CurrentSelection));
+			foreach (var path in dependencyPaths)
+			{
+				if(path == currentSelectionPath)
+					return;
+				
+				_projectDependencies.Add(AssetDatabase.LoadAssetAtPath<Object>(path));
+			}
 		}
 
 		private void OnSelectionChange()
 		{
 			//Selection Changed
 			Debug.Log($"Current selection: ({Selection.activeObject.name})");
-			currentSelection = Selection.activeObject;
+			CurrentSelection = Selection.activeObject;
+			UpdateDependencies();
 		}
 
 		private void OnGUI()
