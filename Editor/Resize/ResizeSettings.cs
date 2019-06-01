@@ -9,6 +9,6 @@ namespace Toolbox.Editor.Resize
         /// </summary>
         public const string Path = "Temp/Resize/Settings.asset";
         
-        public static Setting
+        //public static Setting
     }
 }
