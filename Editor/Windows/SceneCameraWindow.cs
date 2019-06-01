@@ -3,7 +3,7 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
-namespace Toolbox.Editor
+namespace Toolbox.Editor.Windows
 {
     public class SceneCameraWindow : EditorWindow
     {

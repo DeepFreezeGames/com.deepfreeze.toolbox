@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Toolbox.Editor
+namespace Toolbox.Editor.Windows
 {
 	public class AssetDependenciesWindow : EditorWindow
 	{
-		internal enum ViewMode
+		private enum ViewMode
 		{
 			All = 0,
 			SceneOnly = 1,
@@ -23,17 +22,18 @@ namespace Toolbox.Editor
 
 		private string CurrentSelectionName => CurrentSelection != null ? CurrentSelection.name : "Nothing selected";
 
-		public static string currentSelectionPath { get; private set; }
+		private static string CurrentSelectionPath { get; set; }
 		private static Object _currentSelection { get; set; }
-		public static Object CurrentSelection
+		private static Object CurrentSelection
 		{
 			get => _currentSelection;
 			set
 			{
 				_currentSelection = value;
-				currentSelectionPath = AssetDatabase.GetAssetPath(_currentSelection);
+				CurrentSelectionPath = AssetDatabase.GetAssetPath(_currentSelection);
 			}
 		}
+		
 		private List<Object> _sceneDependencies = new List<Object>();
 		private List<Object> _projectDependencies = new List<Object>();
 		private List<Object> _objectsToShow = new List<Object>();
@@ -51,7 +51,7 @@ namespace Toolbox.Editor
 			Initialize(objectAtPath);
 		}
 
-		public static void Initialize(Object selection)
+		private static void Initialize(Object selection)
 		{
 			CurrentSelection = selection;
 			Initialize();
@@ -109,7 +109,7 @@ namespace Toolbox.Editor
 			var dependencyPaths = AssetDatabase.GetDependencies(AssetDatabase.GetAssetPath(CurrentSelection));
 			foreach (var path in dependencyPaths)
 			{
-				if(path == currentSelectionPath)
+				if(path == CurrentSelectionPath)
 					return;
 				
 				_projectDependencies.Add(AssetDatabase.LoadAssetAtPath<Object>(path));
@@ -172,7 +172,7 @@ namespace Toolbox.Editor
 					GUILayout.FlexibleSpace();
 					if (GUILayout.Button("Select"))
 					{
-
+						Selection.activeObject = item;
 					}
 
 					if (GUILayout.Button("Replace"))
