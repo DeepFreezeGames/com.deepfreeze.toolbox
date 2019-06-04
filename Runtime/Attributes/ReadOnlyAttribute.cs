@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Toolbox.Runtime
+namespace Toolbox.Runtime.Attributes
 {
     public class ReadOnlyAttribute : PropertyAttribute
     {
