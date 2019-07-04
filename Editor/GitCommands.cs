@@ -59,5 +59,16 @@ namespace Toolbox.Editor
 
             return output;  // Return the output from git.
         }
+
+        public static string RetrieveCurrentCommitShorthash()
+        {
+            string result = RunGitCommand("rev-parse --short --verify HEAD");
+            // Clean up whitespace around hash. (seems to just be the way this command returns :/ )
+            result = string.Join("", result.Split(default(string[]), StringSplitOptions.RemoveEmptyEntries));
+            Debug.Log("Current Commit: " + result);
+            return result;
+        }
+
+        
     }
 }
