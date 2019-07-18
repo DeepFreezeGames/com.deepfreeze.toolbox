@@ -145,7 +145,7 @@ namespace Toolbox.Editor
 			return currentSelection;
 		}
 
-		public static void CenteredMessage(string message, params GUILayoutOptions[] options)
+		public static void CenteredMessage(string message, params GUILayoutOption[] options)
 		{
 			using(new VerticalBlock())
 			{
