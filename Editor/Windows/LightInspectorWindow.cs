@@ -94,7 +94,7 @@ namespace Toolbox.Editor.Windows
         {
             if (_lights.Length == 0)
             {
-                DrawCenteredMessage("No Lights Found In The Current Scene");
+                EditorGUILayoutHelper.CenteredMessage("No Lights Found In The Current Scene");
                 return;
             }
 
@@ -140,7 +140,7 @@ namespace Toolbox.Editor.Windows
         {
             if (_reflectionProbes.Length == 0)
             {
-                DrawCenteredMessage("No Reflection Probes Found In The Current Scene");
+                EditorGUILayoutHelper.CenteredMessage("No Reflection Probes Found In The Current Scene");
                 return;
             }
 
@@ -176,20 +176,5 @@ namespace Toolbox.Editor.Windows
             }
         }
         #endregion
-
-        private void DrawCenteredMessage(string message)
-        {
-            using (new HorizontalBlock())
-            {
-                GUILayout.FlexibleSpace();
-                using (new VerticalBlock())
-                {
-                    GUILayout.FlexibleSpace();
-                    GUILayout.Label(message, EditorStyles.boldLabel);
-                    GUILayout.FlexibleSpace();
-                }
-                GUILayout.FlexibleSpace();
-            }
-        }
     }
 }
