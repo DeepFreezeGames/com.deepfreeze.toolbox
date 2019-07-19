@@ -144,5 +144,20 @@ namespace Toolbox.Editor
 
 			return currentSelection;
 		}
+
+		public static void CenteredMessage(string message, params GUILayoutOption[] options)
+		{
+			using(new VerticalBlock())
+			{
+				GUILayout.FlexibleSpace();
+				using(new HorizontalBlock(options))
+				{
+                    GUILayout.FlexibleSpace();
+					GUILayout.Label(message, EditorStyles.boldLabel);
+                    GUILayout.FlexibleSpace();
+				}
+                GUILayout.FlexibleSpace();
+			}
+		}
 	}
 }
