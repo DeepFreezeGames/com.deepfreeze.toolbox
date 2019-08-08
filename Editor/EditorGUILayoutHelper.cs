@@ -159,5 +159,26 @@ namespace Toolbox.Editor
                 GUILayout.FlexibleSpace();
 			}
 		}
+
+        /// <summary>
+        /// Creates the UI implementation for a search bar
+        /// </summary>
+        /// <param name="searchString"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        public static string SearchField(string searchString, params GUILayoutOption[] options)
+        {
+            using (new HorizontalBlock())
+            {
+                searchString = GUILayout.TextField(searchString, "ToolbarSeachTextField", options);
+                if (GUILayout.Button("", "ToolbarSeachCancelButton"))
+                {
+                    searchString = "";
+                    GUI.FocusControl(null);
+                }
+            }
+
+            return searchString;
+        }
 	}
 }
