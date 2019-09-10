@@ -11,7 +11,7 @@
         "lit"
     ],
     "dependencies": {
-        "com.deepfreezegames.editorguiextensions": "https://github.com/DeepFreezeGames/EditorGUIExtensions.git"
+        "com.deepfreeze.editorguiextensions": "https://github.com/DeepFreezeGames/EditorGUIExtensions.git"
     },
     "category": "Unity"
 }
