@@ -1,7 +1,7 @@
 {
     "name": "com.deepfreeze.toolbox",
     "displayName": "Toolbox",
-    "registry": "https://github.com/LiamAtDeepFreeze/Toolbox.git",
+    "registry": "https://github.com/DeepFreezeGames/Toolbox.git",
     "version": "0.0.1",
     "unity": "2018.1",
     "description": "A helpful package with useful tools for Unity development",
@@ -11,7 +11,7 @@
         "lit"
     ],
     "dependencies": {
-        "com.deepfreeze.editorguiextensions": "https://github.com/DeepFreezeGames/EditorGUIExtensions.git"
+        "com.deepfreezegames.editorguiextensions": "https://github.com/DeepFreezeGames/EditorGUIExtensions.git"
     },
     "category": "Unity"
 }
