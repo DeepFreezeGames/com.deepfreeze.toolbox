@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using EditorGUIExtensions.Editor;
 using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -146,7 +147,7 @@ namespace Toolbox.Editor.Windows
 			{
 				using (new HorizontalBlock())
 				{
-					_viewMode = (ViewMode)EditorGUILayoutHelper.EnumButtonField("", (int) _viewMode, ViewModeOptions);
+					//_viewMode = (ViewMode)EditorGUILayoutHelper.EnumButtonField("", (int) _viewMode, ViewModeOptions);
 				}
 				using (new ScrollviewBlock(ref _scrollPosMainArea))
 				{

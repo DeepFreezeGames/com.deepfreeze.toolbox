@@ -1,0 +1,16 @@
+{
+    "name": "Toolbox.Editor",
+    "references": [
+        "GUID:900e8a27eb353a74fae4f72e745fa9f7",
+        "GUID:9736720878a1ce24dadb25753a4059ce"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
