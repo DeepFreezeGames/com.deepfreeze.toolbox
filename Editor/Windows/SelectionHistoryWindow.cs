@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using EditorGUIExtensions.Editor;
 using UnityEditor;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Toolbox.Editor.Windows
 {
@@ -76,7 +79,7 @@ namespace Toolbox.Editor.Windows
         }
 
         #region STARTUP
-        [MenuItem("Window/Kano/Selection History")]
+        [MenuItem("Tools/Selection History")]
         public static void ShowWindow()
         {
             var historyWindow = GetWindow<SelectionHistoryWindow>();
