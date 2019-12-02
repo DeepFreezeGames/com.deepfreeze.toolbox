@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -173,6 +174,39 @@ namespace Toolbox.Editor
             }
 
             return assetsAtPath;
+        }
+        
+        /// <summary>
+        /// Fetches all of the <see cref="ScriptableObjects"/> in the project of the given type
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static List<T> GetAllScriptableObjects<T>()where T : ScriptableObject
+        {
+            var output = AssetDatabase.FindAssets($"t:{typeof(T)}")
+                .Select(AssetDatabase.GUIDToAssetPath)
+                .Select(AssetDatabase.LoadAssetAtPath<T>)
+                .ToList();
+
+            return output;
+        }
+        
+        /// <summary>
+        /// Fetches all of the <see cref="ScriptableObjects"/> in the project of the given type using a filter
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static List<T> GetAllScriptableObjects<T>(string filter)where T : ScriptableObject
+        {
+            filter = filter.ToUpper();
+            
+            var output = AssetDatabase.FindAssets($"t:{typeof(T)}")
+                .Select(AssetDatabase.GUIDToAssetPath)
+                .Select(AssetDatabase.LoadAssetAtPath<T>)
+                .Where(e => e.name.ToUpper().Contains(filter))
+                .ToList();
+
+            return output;
         }
     }
 }
