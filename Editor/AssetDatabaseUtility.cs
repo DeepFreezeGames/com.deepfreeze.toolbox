@@ -175,38 +175,37 @@ namespace Toolbox.Editor
 
             return assetsAtPath;
         }
-        
-        /// <summary>
-        /// Fetches all of the <see cref="ScriptableObjects"/> in the project of the given type
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static List<T> GetAllScriptableObjects<T>()where T : ScriptableObject
-        {
-            var output = AssetDatabase.FindAssets($"t:{typeof(T)}")
-                .Select(AssetDatabase.GUIDToAssetPath)
-                .Select(AssetDatabase.LoadAssetAtPath<T>)
-                .ToList();
 
-            return output;
-        }
-        
         /// <summary>
-        /// Fetches all of the <see cref="ScriptableObjects"/> in the project of the given type using a filter
+        /// Returns the assets of the given type in the project based on parameters
         /// </summary>
+        /// <param name="filter"></param>
+        /// <param name="label"></param>
+        /// <param name="folder"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static List<T> GetAllScriptableObjects<T>(string filter)where T : ScriptableObject
+        public static List<T> GetAssets<T>(string filter = "", string label = "", string folder = null) where T : Object
         {
-            filter = filter.ToUpper();
+            var searchQuery = "";
+            if (!string.IsNullOrWhiteSpace(filter))
+            {
+                searchQuery += $"{filter} ";
+            }
+
+            if (!string.IsNullOrWhiteSpace(label))
+            {
+                searchQuery += $"l:{label} ";
+            }
+
+            if (folder == null)
+            {
+                folder = "Assets";
+            }
             
-            var output = AssetDatabase.FindAssets($"t:{typeof(T)}")
+            return AssetDatabase.FindAssets($"{searchQuery} t:{typeof(T)}", new []{folder})
                 .Select(AssetDatabase.GUIDToAssetPath)
                 .Select(AssetDatabase.LoadAssetAtPath<T>)
-                .Where(e => e.name.ToUpper().Contains(filter))
                 .ToList();
-
-            return output;
         }
     }
 }
