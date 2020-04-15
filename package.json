@@ -2,7 +2,7 @@
     "name": "com.deepfreeze.toolbox",
     "displayName": "Toolbox",
     "registry": "https://github.com/DeepFreezeGames/com.deepfreeze.toolbox.git",
-    "version": "1.0.0",
+    "version": "1.0.3",
     "unity": "2018.1",
     "description": "A helpful package with useful tools for Unity development",
     "keywords": [
