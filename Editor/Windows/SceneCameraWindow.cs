@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Reflection;
-using EditorGUIExtensions.Editor;
+using UIExtensions.Editor;
 using UnityEditor;
 using UnityEngine;
 

@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using EditorGUIExtensions.Editor;
+using UIExtensions.Editor;
 using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;

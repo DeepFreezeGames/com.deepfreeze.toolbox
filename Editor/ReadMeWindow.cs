@@ -1,5 +1,5 @@
 ﻿using System;
-using EditorGUIExtensions.Editor;
+using UIExtensions.Editor;
 using UnityEditor;
 using UnityEngine;
 
