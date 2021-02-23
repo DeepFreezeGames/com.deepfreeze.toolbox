@@ -36,7 +36,7 @@ namespace Toolbox.Editor
 
             Undo.RegisterSceneUndo("Replace Selection");
 
-            var transforms = Selection.GetTransforms(SelectionMode.TopLevel | SelectionMode.OnlyUserModifiable);
+            var transforms = Selection.GetTransforms(SelectionMode.TopLevel | SelectionMode.Editable);
 
             foreach (var transform in transforms)
             {
