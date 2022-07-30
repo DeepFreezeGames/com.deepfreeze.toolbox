@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Toolbox.Runtime
+namespace DeepFreeze.Packages.Toolbox.Runtime
 {
     /// <summary>
     ///     Safe area implementation for notched mobile devices. Usage:

@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace Toolbox.Editor
+namespace DeepFreeze.Packages.Toolbox.Editor
 {
     public class ReplaceSelection : ScriptableWizard
     {
@@ -32,7 +32,9 @@ namespace Toolbox.Editor
         private void OnWizardCreate()
         {
             if (_replacement == null)
+            {
                 return;
+            }
 
             Undo.RegisterSceneUndo("Replace Selection");
 
@@ -43,13 +45,13 @@ namespace Toolbox.Editor
                 GameObject spawnedObject;
                 var prefab = PrefabUtility.GetPrefabAssetType(_replacement);
 
-                if (prefab == PrefabAssetType.Regular || prefab == PrefabAssetType.Model || prefab == PrefabAssetType.Variant)
+                if (prefab is PrefabAssetType.Regular or PrefabAssetType.Model or PrefabAssetType.Variant)
                 {
                     spawnedObject = (GameObject)PrefabUtility.InstantiatePrefab(_replacement);
                 }
                 else
                 {
-                    spawnedObject = GameObject.Instantiate(_replacement);
+                    spawnedObject = Instantiate(_replacement);
                 }
 
                 var spawnedObjectTransform = spawnedObject.transform;
@@ -60,12 +62,14 @@ namespace Toolbox.Editor
                 spawnedObjectTransform.localRotation = transform.localRotation;
             }
 
-            if (!_keep)
+            if (_keep)
             {
-                foreach (var gameObject in Selection.gameObjects)
-                {
-                    GameObject.DestroyImmediate(gameObject);
-                }
+                return;
+            }
+            
+            foreach (var gameObject in Selection.gameObjects)
+            {
+                DestroyImmediate(gameObject);
             }
         }
     }

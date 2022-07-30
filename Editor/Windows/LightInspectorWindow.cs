@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using UIExtensions.Editor;
+using DeepFreeze.Packages.UIExtensions.Editor;
 using UnityEditor;
 using UnityEngine;
 
-namespace Toolbox.Editor.Windows
+namespace DeepFreeze.Packages.Toolbox.Editor.Windows
 {
     public class LightInspectorWindow : EditorWindow
     {

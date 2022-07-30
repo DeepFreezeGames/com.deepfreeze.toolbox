@@ -1,21 +1,21 @@
 ﻿using UnityEngine;
 
-namespace Toolbox.Runtime.Attributes
+namespace DeepFreeze.Packages.Toolbox.Runtime.Attributes
 {
-    public class SliderAttribute : PropertyAttribute
+    public class MinMaxSliderAttribute : PropertyAttribute
     {
         public float MinimumValue { get; private set; }
         public float MaximumValue { get; private set; }
         public float SnapValue { get; private set; }
 
-        public SliderAttribute(float minValue, float maxValue, float snapValue = 0.0f)
+        public MinMaxSliderAttribute(float minValue, float maxValue, float snapValue = 0.0f)
         {
             MinimumValue = minValue;
             MaximumValue = maxValue;
             SnapValue = snapValue;
         }
 
-        public SliderAttribute(int minValue, int maxValue, int snapValue = 0)
+        public MinMaxSliderAttribute(int minValue, int maxValue, int snapValue = 0)
         {
             MinimumValue = minValue;
             MaximumValue = maxValue;

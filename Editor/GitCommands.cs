@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 
-namespace Toolbox.Editor
+namespace DeepFreeze.Packages.Toolbox.Editor
 {
     public static class GitCommands
     {
@@ -32,11 +32,11 @@ namespace Toolbox.Editor
             {
             	process.Start();  // Try to start it, catching any exceptions if it fails
             }
-            catch (Exception e)
+            catch (Exception)
             {
             	// For now just assume its failed cause it can't find git.
             	UnityEngine.Debug.LogError("Git is not set-up correctly, required to be on PATH, and to be a git project.");
-            	throw e;
+            	throw;
             }
 
             // Read the results back from the process so we can get the output and check for errors

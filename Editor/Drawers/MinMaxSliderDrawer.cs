@@ -1,11 +1,11 @@
 ﻿using System;
-using Toolbox.Runtime;
-using Toolbox.Runtime.Attributes;
+using DeepFreeze.Packages.Toolbox.Runtime.Attributes;
+using DeepFreeze.Packages.Toolbox.Runtime;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace Toolbox.Editor.Drawers
+namespace DeepFreeze.Packages.Toolbox.Editor.Drawers
 {
     [CustomPropertyDrawer(typeof(MinMaxSliderAttribute))]
     public class MinMaxSliderDrawer : PropertyDrawer

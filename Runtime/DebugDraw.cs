@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Toolbox.Runtime
+namespace DeepFreeze.Packages.Toolbox.Runtime
 {
     public class DebugDraw
     {

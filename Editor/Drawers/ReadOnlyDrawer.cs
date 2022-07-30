@@ -1,9 +1,9 @@
-﻿using Toolbox.Runtime;
-using Toolbox.Runtime.Attributes;
+﻿using DeepFreeze.Packages.Toolbox.Runtime.Attributes;
+using DeepFreeze.Packages.Toolbox.Runtime;
 using UnityEditor;
 using UnityEngine;
 
-namespace Toolbox.Editor
+namespace DeepFreeze.Packages.Toolbox.Editor
 {
 	[CustomPropertyDrawer(typeof(ReadOnlyAttribute))]
 	public class ReadOnlyDrawer : PropertyDrawer

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace Toolbox.Editor
+namespace DeepFreeze.Packages.Toolbox.Editor
 {
 	public class SearchablePopup : PopupWindowContent 
 	{

@@ -2,12 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UIExtensions.Editor;
+using DeepFreeze.Packages.UIExtensions.Editor;
 using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Toolbox.Editor.Windows
+namespace DeepFreeze.Packages.Toolbox.Editor.Windows
 {
     public class SelectionHistoryWindow : EditorWindow
     {

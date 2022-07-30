@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
-namespace Toolbox.Editor
+namespace DeepFreeze.Packages.Toolbox.Editor
 {
     public static class AssetDatabaseUtility
     {
@@ -51,7 +53,7 @@ namespace Toolbox.Editor
         /// </summary>
         /// <returns>The assets at the specified asset relative directory.</returns>
         /// <param name="assetDirectory">Asset relative directory.</param>
-        public static List<UnityEngine.Object> LoadAssetsAtDirectory(string assetDirectory)
+        public static List<Object> LoadAssetsAtDirectory(string assetDirectory)
         {
             // Note this has to use AssetDatabase.Load so that we load sprites and other sub assets and
             // include them as "assets" in the directory. System.IO would not find these files.
@@ -116,11 +118,11 @@ namespace Toolbox.Editor
         /// <param name="fileExtension"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static List<T> GetAssetsInDirectory<T>(string assetDirectory, string fileExtension = "") where T : UnityEngine.Object
+        public static List<T> GetAssetsInDirectory<T>(string assetDirectory, string fileExtension = "") where T : Object
         {
             // Note this has to use AssetDatabase.Load so that we load sprites and other sub assets and
             // include them as "assets" in the directory. System.IO would not find these files.
-            var assetGUIDsInDirectory = AssetDatabase.FindAssets(string.Empty, new string[] { assetDirectory.Substring(0, assetDirectory.Length - 1) });
+            var assetGUIDsInDirectory = AssetDatabase.FindAssets(string.Empty, new[] { assetDirectory.Substring(0, assetDirectory.Length - 1) });
             var filePaths = new List<string>(assetGUIDsInDirectory.Length);
             for (var i = 0; i < assetGUIDsInDirectory.Length; ++i)
             {
@@ -138,13 +140,13 @@ namespace Toolbox.Editor
             foreach (var filePath in filePaths)
             {
                 // Textures have sprites in them. Add all assets in this file, including the file itself.
-                var assetRelativePath = filePath.Substring(filePath.IndexOf("Assets/"));
+                var assetRelativePath = filePath[filePath.IndexOf("Assets/", StringComparison.Ordinal)..];
 
                 // Workaround: Scene assets for some reason error if you load them via LoadAllAssets.
                 // (does it maybe try to load the contents inside the scene?)
                 if (System.IO.Path.GetExtension(assetRelativePath) == ".unity")
                 {
-                    var sceneAsset = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(assetRelativePath);
+                    var sceneAsset = AssetDatabase.LoadAssetAtPath<Object>(assetRelativePath);
                     assetsAtPath.Add((T)sceneAsset);
                 }
                 else

@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using Toolbox.Editor.Windows;
+using DeepFreeze.Packages.Toolbox.Editor.Windows;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Toolbox.Editor
+namespace DeepFreeze.Packages.Toolbox.Editor
 {
     [InitializeOnLoad]
     public class HotKeys

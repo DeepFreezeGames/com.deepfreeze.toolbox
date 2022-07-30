@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Toolbox.Runtime.Attributes
+namespace DeepFreeze.Packages.Toolbox.Runtime.Attributes
 {
     public class EnumBitFieldAttribute : PropertyAttribute
     {

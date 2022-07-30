@@ -1,10 +1,10 @@
 ﻿using System;
-using Toolbox.Runtime.Attributes;
+using DeepFreeze.Packages.Toolbox.Runtime.Attributes;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace Toolbox.Editor.Drawers
+namespace DeepFreeze.Packages.Toolbox.Editor.Drawers
 {
     [CustomPropertyDrawer(typeof(SnapAttribute))]
     public class SnapDrawer : PropertyDrawer

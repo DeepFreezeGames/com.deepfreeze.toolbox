@@ -1,10 +1,10 @@
 ﻿using System;
-using Toolbox.Runtime;
-using Toolbox.Runtime.Attributes;
+using DeepFreeze.Packages.Toolbox.Runtime.Attributes;
+using DeepFreeze.Packages.Toolbox.Runtime;
 using UnityEditor;
 using UnityEngine;
 
-namespace Toolbox.Editor
+namespace DeepFreeze.Packages.Toolbox.Editor
 {
 	[CustomPropertyDrawer(typeof(SearchableEnumAttribute))]
 	public class SearchableEnumDrawer : PropertyDrawer 

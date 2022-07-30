@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace Toolbox.Editor.Windows
+namespace DeepFreeze.Packages.Toolbox.Editor.Windows
 {
     public class LookupAssetWindow : EditorWindow
     {

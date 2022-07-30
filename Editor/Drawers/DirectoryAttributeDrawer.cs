@@ -1,8 +1,8 @@
-﻿using Toolbox.Runtime.Attributes;
+﻿using DeepFreeze.Packages.Toolbox.Runtime.Attributes;
 using UnityEditor;
 using UnityEngine;
 
-namespace Toolbox.Editor.Drawers
+namespace DeepFreeze.Packages.Toolbox.Editor.Drawers
 {
     [CustomPropertyDrawer(typeof(DirectoryAttribute))]
     public class DirectoryAttributeDrawer : PropertyDrawer
