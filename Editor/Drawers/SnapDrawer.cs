@@ -1,5 +1,5 @@
 ﻿using System;
-using DeepFreeze.Packages.Toolbox.Runtime.Attributes;
+using DeepFreeze.Packages.Toolbox.Runtime;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
